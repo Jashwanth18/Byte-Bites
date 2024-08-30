@@ -7,6 +7,10 @@ import Button from "./Button";
 import RTE from "./RTE";
 import Select from "./Select";
 import Input from "./Input";
+import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
+import Card from "./Card";
+
 export {
   Header,
   Footer,
@@ -17,4 +21,7 @@ export {
   RTE,
   Select,
   Input,
+  SignupForm,
+  LoginForm,
+  Card,
 };
