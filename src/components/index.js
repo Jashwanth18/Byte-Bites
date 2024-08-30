@@ -5,11 +5,13 @@ import Container from "./Container/container";
 import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button";
 import RTE from "./RTE";
-import Select from "./Select";
-import Input from "./Input";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Card from "./Card";
+import AuthLayout from "./AuthLayout";
+import PostForm from "./PostForm";
+import Input from "./Input";
+import Select from "./Select";
 
 export {
   Header,
@@ -19,9 +21,11 @@ export {
   LogoutBtn,
   Button,
   RTE,
-  Select,
-  Input,
   SignupForm,
   LoginForm,
   Card,
+  AuthLayout,
+  PostForm,
+  Input,
+  Select,
 };
