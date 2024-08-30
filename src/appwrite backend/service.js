@@ -104,7 +104,7 @@ class Service {
     }
   }
 
-  async deleteFille(fileId) {
+  async deleteFile(fileId) {
     try {
       return await this.storage.uploadFile(config.appwriteBucketId, fileId);
     } catch (error) {

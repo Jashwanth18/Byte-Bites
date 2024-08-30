@@ -4,5 +4,17 @@ import Logo from "./Logo";
 import Container from "./Container/container";
 import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button";
-
-export { Header, Footer, Logo, Container, LogoutBtn, Button };
+import RTE from "./RTE";
+import Select from "./Select";
+import Input from "./Input";
+export {
+  Header,
+  Footer,
+  Logo,
+  Container,
+  LogoutBtn,
+  Button,
+  RTE,
+  Select,
+  Input,
+};
