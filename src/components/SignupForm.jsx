@@ -63,7 +63,7 @@ function SignupForm() {
               label="Email: "
               placeholder="Enter your email"
               type="email"
-              {...register("email", {
+              {...register("emailId", {
                 required: true,
                 validate: {
                   matchPatern: (value) =>

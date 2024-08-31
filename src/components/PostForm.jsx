@@ -21,7 +21,7 @@ function PostForm({ post }) {
   });
 
   const handlePostSubmit = async (postData) => {
-    const savedPost = null;
+    let savedPost = null;
     const newImage = postData.image[0]
       ? service.uploadFile(postData.image[0])
       : null;
