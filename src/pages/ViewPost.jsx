@@ -36,7 +36,7 @@ function ViewPost() {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-20 flex justify-center mb-4 relative border rounded-xl p-2">
+        <div className="flex justify-center mb-4 relative border rounded-xl p-2">
           <img
             src={service.getFilePreview(post.image)}
             alt={post.title}

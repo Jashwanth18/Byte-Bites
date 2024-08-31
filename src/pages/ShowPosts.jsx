@@ -15,10 +15,10 @@ function ShowPosts() {
   return (
     <div className="w-full py-8">
       <Container>
-        <div className="flex flex-wrap">
+        <div className="w-full flex flex-wrap">
           {posts?.map((post) => (
-            <div key={post.$id} className="p-2 w-1/4">
-              <Card post={post} />
+            <div key={post.$id} className="px-8">
+              <Card {...post} />
             </div>
           ))}
         </div>
