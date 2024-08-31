@@ -93,7 +93,7 @@ class Service {
 
   async uploadFile(file) {
     try {
-      return await this.storage.uploadFile(
+      return await this.storage.createFile(
         config.appwriteBucketId,
         ID.unique(),
         file
@@ -106,7 +106,7 @@ class Service {
 
   async deleteFile(fileId) {
     try {
-      return await this.storage.uploadFile(config.appwriteBucketId, fileId);
+      return await this.storage.deleteFile(config.appwriteBucketId, fileId);
     } catch (error) {
       console.log(error);
       return false;

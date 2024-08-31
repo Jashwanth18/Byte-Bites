@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 function PostForm({ post }) {
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.auth.userData);
+  const { userData } = useSelector((state) => state.auth.userData);
 
   const { watch, setValue, control, getValues, register, handleSubmit } =
     useForm({
@@ -22,24 +22,24 @@ function PostForm({ post }) {
     });
 
   const handlePostSubmit = async (postData) => {
+    console.log(postData);
     let savedPost = null;
     const newImage = postData.image[0]
-      ? service.uploadFile(postData.image[0])
+      ? await service.uploadFile(postData.image[0])
       : null;
 
     if (post) {
       if (newImage) {
         await service.deleteFile(post.image);
       }
-
       savedPost = await service.updateArticle(post.$id, {
         ...postData,
-        image: newImage ? newImage.$id : null,
+        image: newImage ? newImage.$id : undefined,
       });
     } else {
+      if (newImage) postData.image = newImage.$id;
       savedPost = await service.createArticle({
         ...postData,
-        image: newImage ? newImage.$id : null,
         userId: userData.$id,
       });
 

@@ -6,14 +6,15 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 
 function ViewPost() {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState();
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  const userData = useSelector((state) => state.auth.userData);
+  const { userData } = useSelector((state) => state.auth.userData);
 
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+  console.log(isAuthor, "isAuthor", post);
   useEffect(() => {
     if (slug) {
       service.getArticle(slug).then((post) => {
@@ -35,7 +36,7 @@ function ViewPost() {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+        <div className="w-20 flex justify-center mb-4 relative border rounded-xl p-2">
           <img
             src={service.getFilePreview(post.image)}
             alt={post.title}
