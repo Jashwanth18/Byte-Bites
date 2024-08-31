@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import service from "../appwrite backend/service";
-import { Card } from "../components";
+import { Card, Container } from "../components";
 
 function ShowPosts() {
   const [posts, setPosts] = useState([]);

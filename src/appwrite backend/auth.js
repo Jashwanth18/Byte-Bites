@@ -12,16 +12,16 @@ class AuthService {
     this.account = new Account(this.client);
   }
 
-  async createAccount({ emailId, password, name }) {
+  async createAccount({ email, password, name }) {
     try {
       const user = await this.account.create(
         ID.unique(),
-        emailId,
+        email,
         password,
         name
       );
       if (user) {
-        this.login(emailId, password);
+        this.login(email, password);
       } else {
         return user;
       }
@@ -30,9 +30,9 @@ class AuthService {
     }
   }
 
-  async login({ emailId, password }) {
+  async login({ email, password }) {
     try {
-      return await this.account.createEmailPasswordSession(emailId, password);
+      return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
       throw error;
     }

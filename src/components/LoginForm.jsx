@@ -55,7 +55,7 @@ function LoginForm() {
               label="Email: "
               placeholder="Enter your email"
               type="email"
-              {...register("emailId", {
+              {...register("email", {
                 required: true,
                 validate: {
                   matchPatern: (value) =>

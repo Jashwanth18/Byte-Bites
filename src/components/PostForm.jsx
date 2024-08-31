@@ -11,14 +11,15 @@ function PostForm({ post }) {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
 
-  const { watch, setValue, control, getValues } = useForm({
-    defaultValues: {
-      title: post?.title || "",
-      content: post?.content || "",
-      slug: post?.slug || "",
-      status: post?.status || "active",
-    },
-  });
+  const { watch, setValue, control, getValues, register, handleSubmit } =
+    useForm({
+      defaultValues: {
+        title: post?.title || "",
+        content: post?.content || "",
+        slug: post?.slug || "",
+        status: post?.status || "active",
+      },
+    });
 
   const handlePostSubmit = async (postData) => {
     let savedPost = null;
@@ -53,7 +54,7 @@ function PostForm({ post }) {
       return value
         .trim()
         .toLowerCase()
-        .replace(/^[a-zA-Z\d\s]+/g, "-")
+        .replace(/[^a-zA-Z\d\s]+/g, "-")
         .replace(/\s/g, "-");
     }
     return "";
@@ -62,7 +63,7 @@ function PostForm({ post }) {
   useEffect(() => {
     const watchTitle = watch((value, { name }) => {
       if (name === "title") {
-        setValue("slug", slugTransform)(value.title, { shouldValidate: true });
+        setValue("slug", slugTransform(value.title, { shouldValidate: true }));
       }
     });
 
@@ -72,7 +73,7 @@ function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handlePostSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(handlePostSubmit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
         <Input
           label="Title :"
