@@ -86,11 +86,7 @@ function PostForm({ post }) {
           placeholder="Slug"
           className="mb-4"
           {...register("slug", { required: true })}
-          onInput={(e) => {
-            setValue("slug", slugTransform(e.currentTarget.value), {
-              shouldValidate: true,
-            });
-          }}
+          readOnly
         />
         <RTE
           label="Content :"
